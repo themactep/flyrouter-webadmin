@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* { box-sizing: border-box; }
+
+a { text-decoration: none; color: #006699;}
+a:hover { text-decoration: underline; }
+
+dt { font-weight: 700; }
+
+dl.lines { display: grid; gap: 1rem 1rem; grid-template-columns: 10rem auto; }
+dl.lines dt { align-self: start; }
+dl.lines dd { align-self: start; }
+
+/*ul { list-style: none; margin: 0; padding-left: 1rem; }*/
+
+body, input, textarea, pre, .code { font: 400 1rem 'IBM Plex Mono', monospace; }
+
+body { background: #eeeeee; margin: 1rem; }
+
+/* layout */
+header, nav, main, footer { position: absolute; left: 1rem; right: 1rem; }
+header { top: 1rem; }
+nav { top:6rem; }
+main { bottom: 3rem; top:8rem; }
+footer { bottom: .5rem; }
+
+header h1 { font-size: 3rem; margin: 0 }
+
+main { align-items: stretch; background: #ffffff; display: flex; }
+
+nav { display: flex; text-transform: uppercase; height: 2rem; }
+nav a { padding: 0.25rem 1rem; min-width: 7rem; }
+nav a:hover { background: #e0e0e0 }
+nav a.on {background: #ffffff; }
+
+aside { flex: 22rem; padding: 1rem; border-right: solid 6px #d3d3d3;}
+aside dl { margin: 0.5rem 0; }
+aside dl dt { color: gray; text-transform: uppercase; }
+aside dl dd { margin: 0 0 0 1rem; }
+aside dl dd a { cursor: pointer !important; }
+aside dl dd.on a { color: #996633; }
+
+article { flex: 100%; overflow: auto; padding: 1rem 2rem; }
+article > h2 { color: #006598; }
+article > div { position: relative; }
+
+footer p { font-size: 0.75rem; text-align: right; }
+
+input[type="text"] { background: #ffffcc; border: none; border-bottom: solid 1px gray; }
+input[type="text"]:focus { border-bottom-color: red; outline: none; }
+
+#cmd {display:flex;gap:0.5rem;}
+#cmd b {flex:2rem;text-align: right}
+#cmd input {flex:100%;}
+#cmd button {flex:2rem}
+#refresh { cursor: pointer; flex-grow: 1; font-size: .8rem; padding: 0.5rem 1rem; text-align: right; }
+
+/* responsiveness */
+/*@media screen and (orientation: landscape) {*/
+@media screen and (min-width: 800px) {
+    body main {flex-direction: row;}
+    body main aside {overflow: auto;max-width: 25rem;}
+    body main aside > dl {overflow: visible;background: none !important;}
+}
+/*@media screen and (orientation: portrait) {*/
+@media screen and (max-width: 802px) {
+    body main {flex-direction: column;}
+    body main aside {overflow: visible;padding: 0; min-height: 3rem; max-height: 3rem;z-index: 1001;order: 1;}
+    body main aside > p { line-height: 3rem; padding: 0 1rem; margin: 0; background: darkslategray; color: white; }
+    body main aside > dl {background: #f7f7f7;margin: 0;overflow: hidden;height: 2rem; }
+    body main aside.expand {max-height: unset;}
+    body main aside.expand > dl {height: 20rem;overflow: auto;z-index: 1000;}
+    body main article {order: 2;z-index: 1;}
+}
+
+.d-none { display: none; }
